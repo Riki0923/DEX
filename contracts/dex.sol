@@ -36,9 +36,9 @@ contract Dex is Wallet {
 
     }
 
-    function withdrawETH(uint amount) public payable{
+    function withdrawETH(uint256 amount) external {
         require(balances[msg.sender]["ETH"] >= amount, "Insufficient balance");
-        balances[msg.sender]["ETH"] = balances[msg.sender]["ETH"].sub(msg.value);
+        balances[msg.sender][bytes32("ETH")] = balances[msg.sender][bytes32("ETH")].sub(amount);
         msg.sender.call{value:amount}("");
     }
 

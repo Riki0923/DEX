@@ -277,9 +277,8 @@ var abi =  [
     ],
     "name": "withdrawETH",
     "outputs": [],
-    "stateMutability": "payable",
-    "type": "function",
-    "payable": true
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
     "inputs": [

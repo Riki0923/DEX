@@ -1,6 +1,6 @@
 var web3 = new Web3(Web3.givenProvider);
 
-var dexAddress = "0x251fe10f85cAD86B1Ea9A0d6944b62987A8D7596";
+var dexAddress = "0x221d267b6cfff75172Ed63e3416B115DFD463795";
 
 $(document).ready(function(){
  window.ethereum.enable().then(async function(accounts){
@@ -9,12 +9,14 @@ $(document).ready(function(){
  prtEthBalance();
  getOrderBookSellSide();
  getOrderBookBuySide();
+ prtTokens();
 
  });
 
   $("#inputETH").click(depositEth);
   $("#withdrawButton").click(withdrawEth);
   $("#getSellSide").click(getOrderBookSellSide);
+  $("#getSellSide").click(getOrderBookBuySide);
   $("#placedLimitOrder").click(placeLimitOrder);
   $("#placedMarketOrder").click(placeMarketOrder);
 
@@ -41,13 +43,15 @@ $(document).ready(function(){
 
   async function withdrawEth(){
     let withdrawedEth = $("#wEth").val();
+    withdrawedEth = web3.utils.toWei(withdrawedEth, "ether");
+    console.log("withdrawed eth val is: " + withdrawedEth);
     let address = ethereum.selectedAddress;
-    console.log(address);
+    //console.log(address);
     let balanceBefore = await dex.methods.balances(address, web3.utils.fromUtf8("ETH")).call();
-    console.log(balanceBefore);
+    console.log("Balance before transaction is: " + balanceBefore);
     await dex.methods.withdrawETH(withdrawedEth).send({from: ethereum.selectedAddress});
     let balanceAfter = await dex.methods.balances(address, web3.utils.fromUtf8("ETH")).call();
-    console.log(balanceAfter);
+    console.log("Balance after transaction is: " + balanceAfter);
     //reloadPage();
     //$("#theNumber").html(parseInt($("#theNumber").text()) - withdrawedEth );
     }
@@ -59,7 +63,7 @@ $(document).ready(function(){
     for(let i = 0; i < orderBookSSide; i ++){
       let ticker = orderBookSSide[i]["ticker"];
       let amount = orderBookSSide[i]["amount"];
-      let priceBuy = web3.utils.toEth(orderBookSSide[i]["price"]);
+      let priceBuy = web3.utils.toWei(orderBookSSide[i]["price"]);
       console.log(ticker,amount, priceBuy);
       $('<tr / > ').appendTo(".OrderbookSellOutPut");
       $('<td / > ').text("Ticker: " + web3.utils.toUtf8(ticker).toString().appendTo(".OrderbookSellOutPut"));
@@ -91,6 +95,7 @@ $(document).ready(function(){
     let token1 = web3.utils.fromUtf8($("#placedTokenLimitOrder").val());
     console.log(token1);
     let amount1 = $("#placedAmountLimitOrder").val();
+    amount1 = web3.utils.toWei(amount1.toString(), "ether");
     console.log(amount1);
     let price = $("#placedPriceLimitOrder").val();
     console.log(price);
@@ -114,8 +119,20 @@ $(document).ready(function(){
   async function prtEthBalance(){
     let ethBalance = await dex.methods.balances(ethereum.selectedAddress, web3.utils.fromUtf8("ETH")).call();
     document.getElementById("theNumber").textContent = web3.utils.fromWei(ethBalance);
+    //let linkBalance = await dex.methods.balances(ethereum.selectedAddress, web3.utils.fromUtf8("LINK")).call();
+    //document.getElementById("theNumber2").textContent = web3.utils.toUtf8(linkBalance);
   }
 
+  async function prtTokens(){
+    let tokenList = await dex.methods.getTokenListLength().call();
+    for(let i = 0; i < tokenList; i++){
+      let tokenVar = await dex.methods.tokenList(i).call();
+      let tokenBalance = await dex.methods.balances(ethereum.selectedAddress, tokenVar).call();
+      console.log("Token Balance of : " + web3.utils.toUtf8(tokenVar) + " " + tokenBalance);
+      $('<tr /> ').text(web3.utils.toUtf8(tokenVar) + ": " + tokenBalance).appendTo("#theNumber2");
+    }
+  }
+  
 })
 
 
