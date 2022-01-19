@@ -1,0 +1,71 @@
+.header {
+    background-color: #c7c2c2;
+    justify-content:center;
+    text-shadow: 2px 2px 2px #1C6EA4;
+    display: flex;
+    font-size: 3rem;
+    font-style: italic;
+    padding: 2rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body {
+    align-items: center;
+}
+
+.p{
+    font-size: 1.3rem;
+    display: flex;
+    margin-right: 1rem;
+    text-shadow: 2px 2px 2px #1C6EA4;
+}
+
+.h2{
+    font-size: 1.1rem;
+    display: flex;
+    margin-right: 1rem;
+    text-shadow: 2px 2px 2px #c1ced6;
+    margin-top: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wallet {
+    margin-top: 2rem;
+    font-size: 3rem;
+    display:flex;
+    justify-content: flex-start;
+    font-style: italic;
+    text-shadow: 2px 2px 2px #1C6EA4;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    color:white;
+    font-size: 14px;
+    margin:auto;
+    border-radius: 4px;
+    background-color:rgb(78, 171, 233);
+    width: 7rem;
+    height: 2.5rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    position: relative;
+}
+
+.num {
+  margin: auto;;
+  display: flex;
+  justify-content: center;
+}

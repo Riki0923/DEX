@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dex.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./web3.min.js"></script>
+    <script type="text/javascript" src="./abi.js"></script>
+    <script type="text/javascript" src="./dex.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
+
+    <title>Dex</title>
+</head>
+<body class="body">
+
+<header class = "header">Welcome to the Decentralized Exchange &#128176;
+
+    <p class = "p">Where you can trade ETH with any other tokens!</p>
+</header>
+
+<div class = "wallet">Wallet Part:</div>
+
+<h2 class = "h2">You can add any ETH here</h2>
+<button class = "button" id="inputETH" >Deposit ETH </button>
+<input class ="input" id="placedETH" type="string" placeholder="Deposit ETH amount here!" class="input">
+<button class = "button" id="withdrawButton">Withdraw ETH</button>
+<input class ="input" id="wEth" type="text" placeholder="Withdraw ETH amount here!" class="input">
+<h2 class = "h2">Your ETH Balance: </h2>
+<h2 id="theNumber" class="num" ></h2>
+<div class = "wallet"> DEX Section </div>
+<h2 class="h2">Get your Orderbook Side here</h2>
+<button class="button" id="getSellSide">OrderBook Sell Side</button>
+<table  class="OrderbookSellOutPut">
+<tr>
+  <td>
+  </td>
+  <td>
+  </td>
+  <td>
+  </td>
+</tr>
+</table>
+<div class = 'alertbox' role="alert" id="sellSide" style="white-space: pre-line"></div>
+<button class="button" id="getBuySide">OrderBook Buy Side</button>
+<table  class="OrderbookBuyOutPut">
+<tr>
+  <td>
+  </td>
+  <td>
+  </td>
+  <td>
+  </td>
+</tr>
+</table>
+<h2 class="h2">Place Limit Order Here</h2>
+<input type="text" id="placedEnumLimitOrder" placeholder="Buy = 0, Sell = 1" class="input">
+<input type="text" id="placedTokenLimitOrder" placeholder="Which Token to buy / sell" class="input">
+<input type="text" id="placedAmountLimitOrder" placeholder="place the amount here" class="input">
+<input type="text" id="placedPriceLimitOrder" placeholder="place the price here" class="input">
+<button class = "button" id="placedLimitOrder">Place Order</button>
+<h2 class="h2">Place Market Order Here</h2>
+<input type="text" id="placedEnumMarketOrder" placeholder="Buy = 0, Sell = 1" class="input">
+<input type="text" id="placedTokenMarketOrder" placeholder="Which Token to buy / sell" class="input">
+<input type="text" id="placedAmountMarketOrder" placeholder="place the amount here" class="input">
+<button class = "button" id="placedMarketOrder">Place Order</button>
+
+
+</body>
+</html>
