@@ -42,7 +42,7 @@ There are 2 parts of this project:
 
 # JavasCript Functions
 
-## deposiEth
+## depositEth
 - Connects with metamask and gets the inputted amount of eth to the contract
 
 ## withdrawEth
