@@ -159,5 +159,6 @@ contract Dex is Wallet {
 
     function getTokenListLength() public view returns (uint) {
         return tokenList.length;
+        
     }
 }
