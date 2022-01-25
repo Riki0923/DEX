@@ -5,6 +5,8 @@ There are 2 parts of this project:
 -A wallet part where you can add or withdraw any ETH or Chainlink Token ( if the metamask account is having LINK and ETH of course ).
 -A Dex part where you can place Limit orders or Market orders to fill the Limit orders
 
+- In order to interact with this contract, you will need a Metamask account and a test blockchain, such as truffle.
+
 ## When this contract is deployed, it will mint 10000 LINK, for ETH you will need to get a test private key (for example from Truffle test blockchain).
 
 - Right now you can Sell and Buy onl Chainlink as the function is written like that, probably I will change it to accept any kind of token in the future
