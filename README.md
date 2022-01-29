@@ -1,5 +1,8 @@
 # DEX Solidity Project
 
+- Languages used: Solidity, Javascript, Html, Css
+- What you will need in order to interact with this contract : Metamask account, a test blockhain which contains some test Ether token.
+
 There are 2 parts of this project:
 
 -A wallet part where you can add or withdraw any ETH or Chainlink Token ( if the metamask account is having LINK and ETH of course ).
@@ -9,7 +12,7 @@ There are 2 parts of this project:
 
 ## When this contract is deployed, it will mint 10000 LINK, for ETH you will need to get a test private key (for example from Truffle test blockchain).
 
-- Right now you can Sell and Buy onl Chainlink as the function is written like that, probably I will change it to accept any kind of token in the future
+- Right now you can Sell and Buy only with Chainlink as the function is written like that, probably I will change it to accept any kind of token in the future
 
 # Functions in Solidity Part:
 
